@@ -137,7 +137,7 @@ Suggest what services to add to this IV protocol today. Return JSON:
 
               {hasMonthlyPass && (
                 <div style={{ marginTop: '16px', padding: '12px 14px', background: 'linear-gradient(135deg, #F5EBE0 0%, #F0E0D0 100%)', borderRadius: '12px', border: '1px solid rgba(196, 149, 106, 0.2)', fontSize: '0.875rem', fontWeight: 500, color: '#A3784F' }}>
-                  ✓ Monthly Pass Active (10% IV discount)
+                  Monthly Pass Active (10% IV discount)
                 </div>
               )}
             </div>

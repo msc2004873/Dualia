@@ -17,7 +17,7 @@ export default function Memberships({ memberships }) {
   const confirmVisit = () => {
     if (!selectedMember) return;
     console.log('Visit registered for:', selectedMember.memberName, 'on', visitDate);
-    alert(`✓ Visit registered for ${selectedMember.memberName}`);
+    alert(`Visit registered for ${selectedMember.memberName}`);
     setShowVisitModal(false);
     setSelectedMember(null);
   };
@@ -36,9 +36,9 @@ export default function Memberships({ memberships }) {
       {/* Stats */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px', marginBottom: '40px' }}>
         {[
-          { icon: '✓', label: 'Active Members', value: activeMembers, color: 'teal' },
-          { icon: '⚠️', label: 'Expiring This Week', value: expiringThisWeek, color: 'warning' },
-          { icon: '💰', label: 'Monthly Revenue', value: `$${monthlyRevenue}`, color: 'gold' },
+          { label: 'Active Members', value: activeMembers, color: 'teal' },
+          { label: 'Expiring This Week', value: expiringThisWeek, color: 'warning' },
+          { label: 'Monthly Revenue', value: `$${monthlyRevenue}`, color: 'gold' },
         ].map((stat, i) => (
           <div
             key={i}
@@ -59,7 +59,6 @@ export default function Memberships({ memberships }) {
               e.currentTarget.style.transform = 'translateY(0)';
             }}
           >
-            <div style={{ fontSize: '2rem', marginBottom: '8px' }}>{stat.icon}</div>
             <div style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-secondary)', letterSpacing: '0.04em', textTransform: 'uppercase', marginBottom: '8px' }}>
               {stat.label}
             </div>
@@ -102,7 +101,7 @@ export default function Memberships({ memberships }) {
                     onMouseLeave={(e) => e.currentTarget.style.background = rowBg}
                   >
                     <td style={{ padding: '16px', fontSize: '0.875rem', fontWeight: 500, color: 'var(--text-primary)' }}>
-                      👤 {m.memberName}
+                      {m.memberName}
                     </td>
                     <td style={{ padding: '16px', fontSize: '0.875rem', color: 'var(--text-secondary)' }}>
                       {m.passType === 'Monthly Pass' ? (
@@ -155,7 +154,7 @@ export default function Memberships({ memberships }) {
                         background: m.status === 'expired' ? 'var(--danger-light)' : 'linear-gradient(135deg, #E9F7EF 0%, #D9F2E8 100%)',
                         color: m.status === 'expired' ? 'var(--danger)' : 'var(--success)',
                       }}>
-                        {m.status === 'expired' ? '✗ Expired' : '✓ Active'}
+                        {m.status === 'expired' ? 'Expired' : 'Active'}
                       </span>
                     </td>
                     <td style={{ padding: '16px', textAlign: 'center' }}>

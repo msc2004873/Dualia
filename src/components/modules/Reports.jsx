@@ -86,10 +86,10 @@ export default function Reports() {
       {/* Key Metrics Grid */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px', marginBottom: '40px' }}>
         {[
-          { icon: '💰', label: 'Total Revenue', value: `$${metrics.totalRevenue}`, detail: metrics.visitGrowth },
-          { icon: '📅', label: 'Appointments', value: metrics.totalAppointments, detail: `Avg $${metrics.avgSessionValue}/session` },
-          { icon: '👥', label: 'Active Members', value: metrics.activeMembers, detail: metrics.retentionRate + ' retention' },
-          { icon: '📊', label: 'Occupancy Rate', value: metrics.occupancyRate + '%', detail: 'capacity utilization' },
+          { label: 'Total Revenue', value: `$${metrics.totalRevenue}`, detail: metrics.visitGrowth },
+          { label: 'Appointments', value: metrics.totalAppointments, detail: `Avg $${metrics.avgSessionValue}/session` },
+          { label: 'Active Members', value: metrics.activeMembers, detail: metrics.retentionRate + ' retention' },
+          { label: 'Occupancy Rate', value: metrics.occupancyRate + '%', detail: 'capacity utilization' },
         ].map((stat, i) => (
           <div
             key={i}
@@ -110,7 +110,6 @@ export default function Reports() {
               e.currentTarget.style.transform = 'translateY(0)';
             }}
           >
-            <div style={{ fontSize: '1.5rem', marginBottom: '8px' }}>{stat.icon}</div>
             <div style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-secondary)', letterSpacing: '0.04em', textTransform: 'uppercase', marginBottom: '8px' }}>
               {stat.label}
             </div>
@@ -206,7 +205,7 @@ export default function Reports() {
             <tbody>
               {nursePerformance.map((nurse, i) => (
                 <tr key={i} style={{ borderBottom: '1px solid var(--border-light)' }} onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(42, 127, 111, 0.02)'} onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}>
-                  <td style={{ padding: '14px 0', color: 'var(--text-primary)', fontWeight: 500 }}>👩‍⚕️ {nurse.name}</td>
+                  <td style={{ padding: '14px 0', color: 'var(--text-primary)', fontWeight: 500 }}>{nurse.name}</td>
                   <td style={{ padding: '14px 0', textAlign: 'right', color: 'var(--text-secondary)' }}>{nurse.appointments}</td>
                   <td style={{ padding: '14px 0', textAlign: 'right', color: 'var(--accent)', fontWeight: 600 }}>${nurse.revenue}</td>
                   <td style={{ padding: '14px 0', textAlign: 'right', color: 'var(--text-secondary)' }}>${Math.round(nurse.revenue / nurse.appointments)}</td>
@@ -220,9 +219,9 @@ export default function Reports() {
       {/* Patient Metrics */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '16px' }}>
         {[
-          { label: 'Patient Satisfaction', value: metrics.patientSatisfaction, icon: '⭐' },
-          { label: 'Retention Rate', value: metrics.retentionRate, icon: '💚' },
-          { label: 'Total Patients', value: patients.length, icon: '👥' },
+          { label: 'Patient Satisfaction', value: metrics.patientSatisfaction },
+          { label: 'Retention Rate', value: metrics.retentionRate },
+          { label: 'Total Patients', value: patients.length },
         ].map((item, i) => (
           <div
             key={i}
@@ -235,7 +234,6 @@ export default function Reports() {
               boxShadow: '0 2px 12px rgba(27, 51, 48, 0.04)',
             }}
           >
-            <div style={{ fontSize: '2rem', marginBottom: '8px' }}>{item.icon}</div>
             <div style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: '2rem', fontWeight: 400, color: 'var(--text-primary)', marginBottom: '8px' }}>
               {item.value}
             </div>
